@@ -11,4 +11,3 @@ def print_matrix_integer(matrix=[[]]):
                     fin = ''
                 print("{:d}".format(matrix[r][i]), end=fin)
             print()
-
