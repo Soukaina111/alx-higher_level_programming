@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""Defines Rectangle Class"""
+"""Defines a class Rectangle"""
 
 
 class Rectangle:
     """
-    Class based on the last task.
+    Class that defines properties of rectangle by: (based on 7-rectangle.py).
 
     Attributes:
         width (int): width of the rectangle.
@@ -18,8 +18,8 @@ class Rectangle:
         """Creates new instances of Rectangle.
 
         Args:
-            width (int, optional): By Default = 0.
-            height (int, optional): By Default = 0.
+            width (int, optional): width of rectangle. Defaults to 0.
+            height (int, optional): height of rectangle. Defaults to 0.
         """
         self.height = height
         self.width = width
@@ -27,7 +27,7 @@ class Rectangle:
 
     @property
     def width(self):
-        """ Gets Width.
+        """Width retriver.
 
         Returns:
             int: the width of the rectangle.
@@ -36,7 +36,7 @@ class Rectangle:
 
     @property
     def height(self):
-        """Gets the Height.
+        """Height retriver.
 
         Returns:
             int: the height of the rectangle.
@@ -45,7 +45,7 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-        """Update the width of rectangle.
+        """Property setter for width of rectangle.
 
         Args:
             value (int): width of the rectangle.
@@ -63,7 +63,7 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        """Update the height of rectangle.
+        """Property setter for height of recyangle.
 
         Args:
             value (int): height of the rectangle.
@@ -80,7 +80,7 @@ class Rectangle:
             self.__height = value
 
     def area(self):
-        """Calculates rectangle's area.
+        """Calculates area of a rectangle.
 
         Returns:
             int: area.
@@ -88,7 +88,7 @@ class Rectangle:
         return self.__height * self.__width
 
     def perimeter(self):
-        """Calculates rectangle's perimeter.
+        """Calculates perimeter of a rectangle
 
         Returns:
             int: perimeter.
@@ -99,7 +99,7 @@ class Rectangle:
             return 2 * (self.__height + self.__width)
 
     def __str__(self):
-        """Displays the rectangle using # .
+        """Prints the rectangle with the character # .
 
         Returns:
             str: the rectangle
@@ -114,7 +114,7 @@ class Rectangle:
                 rectangle.append(str(self.print_symbol))
             rectangle.append("\n")
 
-        # deletes the empty line
+        # remove blank line
         rectangle.pop()
 
         return "".join(rectangle)
@@ -128,33 +128,33 @@ class Rectangle:
         return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
 
     def __del__(self):
-        """Removes an instance of a class
+        """Deletes an instance of a class
         """
         print("{:s}".format("Bye rectangle..."))
         type(self).number_of_instances -= 1
 
     @staticmethod
-    def bigger_or_equal(rect_A, rect_B):
-        """Computes the area of both rectangles and compares them.
+    def bigger_or_equal(rect_1, rect_2):
+        """Computes the area of two rectangles and compares them.
 
         Args:
-            rect_A (Rectangle): first rectangle.
-            rect_B (Rectangle): second rectangle.
+            rect_1 (Rectangle): first rectangle.
+            rect_2 (Rectangle): second rectangle.
 
         Returns:
-            Rectangle: the rectangle with the biggest area else rect_A if
+            Rectangle: the rectangle with the biggest area else rect_1 if
             areas are equal
         """
-        if not isinstance(rect_A, Rectangle):
-            raise TypeError("rect_A must be an instance of Rectangle")
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
 
-        if not isinstance(rect_B, Rectangle):
-            raise TypeError("rect_B must be an instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
 
-        area_A = rect_A.area()
-        area_B = rect_B.area()
+        area_1 = rect_1.area()
+        area_2 = rect_2.area()
 
-        if area_A >= area_B:
-            return rect_A
+        if area_1 >= area_2:
+            return rect_1
 
-        return rect_B
+        return rect_2
