@@ -7,18 +7,19 @@ class Rectangle:
     Class based on the previous task.
 
     Attributes:
-        width (int).
-        height (int).
+        width (int): width of the rectangle.
+        height (int): height of the rectangle.
     """
 
     number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """Creates new instances of Rectangle.
 
         Args:
-            width (int, optional): By Default 0.
-            height (int, optional): By Default 0.
+            width (int, optional): by Default = 0.
+            height (int, optional): by Default = 0.
         """
         self.height = height
         self.width = width
@@ -35,7 +36,7 @@ class Rectangle:
 
     @property
     def height(self):
-        """ Gets Height.
+        """Gets Height.
 
         Returns:
             int: the height of the rectangle.
@@ -62,7 +63,7 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        """Update the height of rectangle.
+        """Update the height of recyangle.
 
         Args:
             value (int): height of the rectangle.
@@ -110,10 +111,10 @@ class Rectangle:
 
         for i in range(self.__height):
             for j in range(self.__width):
-                rectangle.append("#")
+                rectangle.append(str(self.print_symbol))
             rectangle.append("\n")
 
-        # delete the empty line
+        # deletes the empty line
         rectangle.pop()
 
         return "".join(rectangle)
@@ -127,7 +128,7 @@ class Rectangle:
         return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
 
     def __del__(self):
-        """Removes an instance of a class
+        """removes an instance of a class
         """
         print("{:s}".format("Bye rectangle..."))
         type(self).number_of_instances -= 1
