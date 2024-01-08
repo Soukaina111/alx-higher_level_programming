@@ -54,6 +54,13 @@ print_sorted method called with 1 arg:
     Traceback (most recent call last):
     TypeError: print_sorted() takes 1 positional argument but 2 were given
 
+Original list unchanged:
+    >>> ml = MyList([2, 10, 1, -17, 20, 342, 0])
+    >>> ml.print_sorted()
+    [-17, 0, 1, 2, 10, 20, 342]
+    >>> ml
+    [2, 10, 1, -17, 20, 342, 0]
+
 
 
 append to an empty list:
