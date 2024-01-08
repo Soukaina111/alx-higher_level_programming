@@ -46,14 +46,14 @@ Negative ints list test:
 Original list unchanged:
     >>> ml = MyList([22, 10, 4, -101, 40, 180, 3])
     >>> ml.print_sorted()
-    [-101, 3, 4, 10,22, 40,180]
+    [-101, 3, 4, 10, 22, 40,180]
     >>> ml
     [22, 10, 4, -101, 40, 180, 3]
 
 List already sorted:
     >>> ml = MyList([-2024, 15, 16, 21, 103, 202, 1007])
     >>> ml.print_sorted()
-    [-2024, 1,16, 21, 103, 202, 1007]
+    [-2024, 15, 16, 21, 103, 202, 1007]
 
 print_sorted method called with 1 arg:
     >>> ml.print_sorted([54, 7, 12])
