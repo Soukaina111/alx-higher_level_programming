@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Starts a JSON-to-object functio Module"""
+"""Starts a JSON-to-object function Module"""
 
 
 import json
