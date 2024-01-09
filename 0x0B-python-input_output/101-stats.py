@@ -14,7 +14,7 @@ def print_stats(size, status_codes):
 if __name__ == "__main__":
     import sys
 
-    si = 0
+    size = 0
     status_codes = {}
     valid_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
     cpt = 0
@@ -22,7 +22,7 @@ if __name__ == "__main__":
     try:
         for line in sys.stdin:
             if cpt == 10:
-                print_stats(si, status_codes)
+                print_stats(size, status_codes)
                 cpt = 1
             else:
                 cpt += 1
@@ -30,7 +30,7 @@ if __name__ == "__main__":
             line = line.split()
 
             try:
-                si += int(line[-1])
+                size += int(line[-1])
             except (IndexError, ValueError):
                 pass
 
@@ -43,8 +43,8 @@ if __name__ == "__main__":
             except IndexError:
                 pass
 
-        print_stats(si, status_codes)
+        print_stats(size, status_codes)
 
     except KeyboardInterrupt:
-        print_stats(si, status_codes)
+        print_stats(size, status_codes)
         raise
