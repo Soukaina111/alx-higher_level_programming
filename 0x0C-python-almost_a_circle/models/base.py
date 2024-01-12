@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 '''Base class.'''
 from json import dumps, loads
-
+import csv
 
 class Base:
     '''Base class.'''
@@ -49,4 +49,79 @@ class Base:
         with open(file, "r", encoding="utf-8") as fi:
             return [cls.create(**d) for d in cls.from_json_string(fi.read())]
 
+     @classmethod
+    def create(cls, **dictionary):
+        '''Brings instance from dictionary.'''
+        from models.rectangle import Rectangle
+        from models.square import Square
+        if cls is Rectangle:
+            new = Rectangle(1, 1)
+        elif cls is Square:
+            new = Square(1)
+        else:
+            new = None
+        new.update(**dictionary)
+        return new
 
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        '''puts object into csv file.'''
+        from models.rectangle import Rectangle
+        from models.square import Square
+        if list_objs is not None:
+            if cls is Rectangle:
+                list_objs = [[obj.id, obj.width, obj.height, obj.x, obj.y]
+                             for obj in list_objs]
+            else:
+                list_objs = [[obj.id, obj.size, obj.x, obj.y]
+                             for obj in list_objs]
+        with open('{}.csv'.format(cls.__name__), 'w', newline='',
+                  encoding='utf-8') as fi:
+            writer = csv.writer(fi)
+            writer.writerows(list_objs)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        '''put object into csv file.'''
+        from models.rectangle import Rectangle
+        from models.square import Square
+        se = []
+        with open('{}.csv'.format(cls.__name__), 'r', newline='',
+                  encoding='utf-8') as fi:
+            reader = csv.reader(fi)
+            for row in reader:
+                row = [int(ro) for ro in row]
+                if cls is Rectangle:
+                    di = {"id": row[0], "width": row[1], "height": row[2],
+                         "x": row[3], "y": row[4]}
+                else:
+                    di = {"id": row[0], "size": row[1],
+                         "x": row[2], "y": row[3]}
+                se.append(cls.create(**di))
+        return se
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        import turtle
+        import time
+        from random import randrange
+        turtle.Screen().colormode(255)
+        for i in list_rectangles + list_squares:
+            t = turtle.Turtle()
+            t.color((randrange(255), randrange(255), randrange(255)))
+            t.pensize(1)
+            t.penup()
+            t.pendown()
+            t.setpos((i.x + t.pos()[0], i.y - t.pos()[1]))
+            t.pensize(10)
+            t.forward(i.width)
+            t.left(90)
+            t.forward(i.height)
+            t.left(90)
+            t.forward(i.width)
+            t.left(90)
+            t.forward(i.height)
+            t.left(90)
+            t.end_fill()
+
+        time.sleep(5)
