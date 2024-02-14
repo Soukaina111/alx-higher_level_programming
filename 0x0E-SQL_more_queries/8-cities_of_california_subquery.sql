@@ -1,2 +1,7 @@
 -- This script select specifi cities from db
-SELECT name,id FROM cities where name = CALIFORNIA ORDER BY cities.id ASC;
+SELECT * FROM cities
+WHERE state_id = (
+    SELECT id FROM states
+    WHERE name = 'California'
+)
+ORDER BY id ASC;
