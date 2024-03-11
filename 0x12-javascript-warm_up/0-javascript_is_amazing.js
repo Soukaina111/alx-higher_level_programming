@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// This script displays the content of myvar Variable
+// This script displays “Javascript is amazing”as myVar
 
-const myVar = "JavaScript is amazing";
+const myVar = 'Javascript is amazing';
 console.log(myVar);
