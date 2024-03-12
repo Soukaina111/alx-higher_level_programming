@@ -1,9 +1,9 @@
 #!/usr/bin/node
+
 // This script adds a rotate and double method to the previous code
 
 class Rectangle {
-
- constructor (w, h) {
+	constructor (w, h) {
     if (w > 0 && h > 0) {
       this.width = w;
       this.height = h;
