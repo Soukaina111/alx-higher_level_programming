@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-//This script defines the rectangle class wth condition in constructor
+// This script defines the rectangle class wth condition in constructor
 
 class Rectangle {
   constructor (w, h) {
