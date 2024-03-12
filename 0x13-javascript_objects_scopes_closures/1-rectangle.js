@@ -1,4 +1,5 @@
 #!/usr/bin/node
+
 // THis script defines the rectangle class and its constructor
 
 class Rectangle {
