@@ -1,5 +1,5 @@
 #!/usr/bin/node
-//This script for task 9
+// This script for task 9
 
 let count = 0;
 
