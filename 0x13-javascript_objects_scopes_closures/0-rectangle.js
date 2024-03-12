@@ -1,6 +1,7 @@
 #!/usr/bin/node
 // This script creates a Rectangle class
 
-class Rectangle {};
+class Rectangle {
 
+};
 module.exports = Rectangle;
