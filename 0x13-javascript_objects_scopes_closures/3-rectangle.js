@@ -1,7 +1,6 @@
 #!/usr/bin/node
 
 // This script adds a print method to the previous code
-
 class Rectangle {
   constructor(w, h) {
     if (w > 0 && h > 0) {
@@ -9,11 +8,8 @@ class Rectangle {
       this.height = h;
     }
   }
-    /**
-   * @property of the class print
-   * @returns void with drawing the rectangle
-   */
-   print() {
+
+  print() {
     for (let i = 0; i < this.height; i++) {
       let ro = "";
       for (let j = 0; j < this.width; j++) {
@@ -23,4 +19,5 @@ class Rectangle {
     }
   }
 }
+
 module.exports = Rectangle;
