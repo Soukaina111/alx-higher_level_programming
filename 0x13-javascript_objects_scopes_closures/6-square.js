@@ -1,5 +1,5 @@
 #!/usr/bin/node
-//this script add a chart function to the previous code 
+// This script add a chart function to the previous code 
 
 class Square extends require('./5-square.js') {
   charPrint(c) {
