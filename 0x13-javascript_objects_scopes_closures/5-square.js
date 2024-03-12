@@ -2,8 +2,9 @@
 // This script defines a subclass square of Rectnagle class
 
 const Rectangle = require('./4-rectangle.js');
-module.exports = class Square extends Rectangle {
-  constructor(size) {
+class Square extends Rectangle {
+  constructor (size) {
     super(size, size);
   }
-};
+}
+module.exports = Square;
