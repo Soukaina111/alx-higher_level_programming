@@ -9,8 +9,11 @@ class Rectangle {
       this.height = h;
     }
   }
-
- print() {
+    /**
+   * @property of the class print
+   * @returns void with drawing the rectangle
+   */
+   print() {
     for (let i = 0; i < this.height; i++) {
       let ro = "";
       for (let j = 0; j < this.width; j++) {
