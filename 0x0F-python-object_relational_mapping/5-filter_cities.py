@@ -10,7 +10,7 @@ if __name__ == '__main__':
 	data_base= argv[3]
 	searched = argv[4]
 
-	db= MySQLdb.connect(host="localhost", port = "3306", user=user_name, passwd= pass_word,database=data_base)
+	db= MySQLdb.connect(host="localhost", port = "3306", user=user_name, passwd= pass_word,db=data_base)
 
 	mapi = db.cursor();
         mapi.execute("SELECT cities.id, cities.name FROM cities\
