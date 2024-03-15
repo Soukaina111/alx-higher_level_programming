@@ -1,9 +1,10 @@
 #!/usr/bin/python3
+
 """ This script that lists all states from the database hbtn_0e_0_usa """
+
 import MySQLdb
 from sys import argv
 
-# The code should not be executed when imported
 if __name__ == '__main__':
     user_name = argv[1]
     pass_word = argv[2]
@@ -13,7 +14,7 @@ if __name__ == '__main__':
 
     mapi = db.cursor()
 
-    mapi.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    mapi.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
     rows = mapi.fetchall()
 
     for data in rows:
