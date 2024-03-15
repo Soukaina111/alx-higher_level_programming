@@ -20,7 +20,7 @@ if __name__ == '__main__':
         rows = mapi.fetchall()
         listA = []
         for i in rows:
-            list1.append(i[1])
+            listA.append(i[1])
         print(", ".join(listA))
 
 	mapi.close();
