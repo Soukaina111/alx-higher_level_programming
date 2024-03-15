@@ -10,6 +10,7 @@ from sqlalchemy.orm import relationship
 
 Base = declarative_base()
 
+
 class City(Base):
     __tablename__ = 'cities'
     id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
@@ -17,6 +18,8 @@ class City(Base):
     state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
     state = relationship("State")
 
+
 if __name__ == '__main__':
-    engine = create_engine('mysql://username:password@localhost:3306/hbtn_0e_4_usa')
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
+            username, password, db_name))
     Base.metadata.create_all(engine)
