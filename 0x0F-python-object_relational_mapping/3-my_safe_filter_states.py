@@ -15,14 +15,14 @@ if __name__ == '__main__':
 
     mapi = db.cursor()
 
-    query = "SELECT * FROM states WHERE BINARY =%s ORDER BY id ASC"
+    query = "SELECT * FROM states WHERE BINARY name  =%s ORDER BY states.id ASC"
 
     mapi.execute(query, (search,))
 
     rows = cur.fetchall()
 
     for data in rows:
-        print(row)
+        print(data)
 
     mapi.close()
     db.close()
