@@ -10,12 +10,18 @@ if __name__ == '__main__':
     data_base = argv[3]
     search = argv[4]
 
-    db = MySQLdb.connect(host="localhost", port=3306, user=user_name,
-                         passwd=pass_word, db=data_base)
-
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=user_name,
+        passwd=pass_word,
+        db=data_base,
+        charset="utf8"
+    )
     mapi = db.cursor()
 
-    query = "SELECT * FROM states WHERE BINARY name  =%s ORDER BY states.id ASC"
+    query = "SELECT * FROM states WHERE BINARY\
+            name  =%s ORDER BY states.id ASC"
 
     mapi.execute(query, (search,))
 
