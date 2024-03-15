@@ -10,7 +10,7 @@ if __name__ == '__main__':
     pass_word = argv[2]
     data_base = argv[3]
 
-    db = MySQLdb.connect(host="localhost", port=3306, user=user_name, passwd=pass_word, db=data_base)
+    db = MySQLdb.connect(host = "localhost", port = 3306, user = user_name, passwd = pass_word, db = data_base)
 
     mapi = db.cursor()
 
