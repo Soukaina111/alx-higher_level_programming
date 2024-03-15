@@ -27,9 +27,7 @@ if __name__ == '__main__':
     password = sys.argv[2]
     db_name = sys.argv[3]
 
-    engine = create_engine(f'mysql : //{username} : \
-            {password}@localhost :\
-            3306/{db_name}')
+    engine = create_engine(f'mysql : //{username} : {password}@localhost : 3306/{db_name}')
     Base.metadata.create_all(engine)
 
     Session = sessionmaker(bind=engine)
