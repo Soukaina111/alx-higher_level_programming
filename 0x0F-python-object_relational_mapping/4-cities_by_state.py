@@ -13,7 +13,9 @@ if __name__ == '__main__':
 	db= MySQLdb.connect(host="localhost", port = "3306", user=user_name, passwd= pass_word,database=data_base)
 
 	mapi = db.cursor();
-        mapi.execute("SELECT *  FROM cities INNER JOIN states ON cities.state_id = states.id\
+        mapi.execute("SELECT cities.id, cities.name, states.name FROM cities\
+                FROM cities INNER JOIN states\
+                ON cities.state_id = states.id\
                 ORDER BY cities.id ASC")
 
 
