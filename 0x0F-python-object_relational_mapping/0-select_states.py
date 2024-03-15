@@ -2,7 +2,6 @@
 """ 
 This script displays all states from the database
 """
-
 import MySQLdb
 from sys import argv
 
@@ -20,7 +19,6 @@ if __name__ == '__main__':
     rows = mapi.fetchall()
     for data in rows:
         print(data)
-
     # Close connexion
     mapi.close()
     db.close()
