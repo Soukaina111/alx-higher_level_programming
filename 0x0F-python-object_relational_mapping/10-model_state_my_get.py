@@ -10,10 +10,10 @@ if __name__ == '__main__':
     searched = sys.argv[4]
 
     engine = create_engine(f'mysql://{mysql_username}:{mysql_password}@localhost:3306/{db_name}')
-    Base.metadata.bind = engine
 
     Session = sessionmaker(bind=engine)
     session = Session()
+    Base.metadata.create_all(engine)
 
     state = session.query(State).filter(State.name == searched).first()
 
