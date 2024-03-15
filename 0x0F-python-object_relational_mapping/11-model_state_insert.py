@@ -1,33 +1,26 @@
 #!/usr/bin/python3
 """
-This script use SQLAlchemy to add an object named  “Louisiana” 
+This script use SQLAlchemy  to add a new object
 """
-import sys
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
+
+from model_state import Base, State
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from model_state import Base, State
+from sys import argv
 
-Base = declarative_base()
+if __name__ == "__main__":
+    user_name = argv[1]
+    pass_word = argv[2]
+    data_base = argv[3]
 
-if __name__ == '__main__':
-    username = sys.argv[1]
-    password = sys.argv[2]
-    db_name = sys.argv[3]
-
-    engine = create_engine(f'mysql://{username}:{password}@localhost:3306/{db_name}')
-    Base.metadata.create_all(engine)
-
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
+        user_name, pass_word, data_base))
     Session = sessionmaker(bind=engine)
     session = Session()
+    Base.metadata.create_all(engine)
 
-    new = State(name='Louisiana')
-
-    session.add(new)
-
+    new = State(name="Louisiana")
+    session.add(add_state)
     session.commit()
-
-    print("{}: {}".format(new.id, new.name))
-
+    print(new.id)
     session.close()
