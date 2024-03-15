@@ -12,14 +12,7 @@ Base = declarative_base()
 
 
 class City(Base):
-    __tablename__ = 'cities'
-    id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
+    __tablename__ = "cities"
+    id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
     name = Column(String(128), nullable=False)
     state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
-    state = relationship("State")
-
-
-if __name__ == '__main__':
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
-            username, password, db_name))
-    Base.metadata.create_all(engine)
