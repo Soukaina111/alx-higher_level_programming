@@ -10,11 +10,18 @@ if __name__ == '__main__':
     data_base = argv[3]
     searched = argv[4]
 
-    db = MySQLdb.connect(host="localhost", port=3306, user=user_name, passwd=pass_word, db=data_base )
-
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=user_name,
+        passwd=pass_word,
+        db=data_base,
+        charset="utf8"
+    )
     mapi = db.cursor()
 
-    mapi.execute("SELECT * FROM states WHERE name LIKE BINARY '{}%' ORDER BY id ASC".format(searched))
+    mapi.execute("SELECT * FROM states WHERE name LIKE BINARY\
+            '{}%' ORDER BY id ASC".format(searched))
     rows = mapi.fetchall()
 
     for data in rows:
