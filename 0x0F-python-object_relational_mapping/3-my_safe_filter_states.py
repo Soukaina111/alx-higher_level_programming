@@ -15,7 +15,7 @@ if __name__ == '__main__':
 
     mapi = db.cursor()
 
-    query = "SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY id ASC"
+    query = "SELECT * FROM states WHERE BINARY =%s ORDER BY id ASC"
 
     mapi.execute(query, (search,))
 
