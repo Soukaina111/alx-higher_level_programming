@@ -17,8 +17,8 @@ if __name__ == '__main__':
                 INNER JOIN states ON cities.state_id = states.id\
                 WHERE states.name = %s", searched)
 
-	rows = mapi.fetchall();
-        listA = []
+	rows = mapi.fetchall()
+    listA = []
     for i in rows:
         list1.append(i[1])
     print(", ".join(listA))
