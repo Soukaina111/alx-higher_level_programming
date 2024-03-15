@@ -11,7 +11,7 @@ class City(Base):
     """
     City subclass of Base class
     Attributes:
-        id: 
+        id:
         name:
         state_id
     """
