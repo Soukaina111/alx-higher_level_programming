@@ -19,7 +19,7 @@ if __name__ == '__main__':
 
     mapi.execute(query, (search,))
 
-    rows = cur.fetchall()
+    rows = mapi.fetchall()
 
     for data in rows:
         print(data)
