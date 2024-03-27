@@ -2,6 +2,8 @@
 """
 Script/Function for task 6 about Peak
 """
+
+
 def find_peak(list_of_integers):
     def case_0():
         return None
