@@ -4,4 +4,4 @@
  
 size=$(curl -s $1 | wc -c)
 
-echo "Response body size: $size bytes"
+echo "$size"
