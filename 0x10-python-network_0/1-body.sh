@@ -9,3 +9,4 @@ if [ "$outc" -eq 200 ]; then
 else
   echo "Error: Non-200 status code received. Status code: $outc"
 fi
+
