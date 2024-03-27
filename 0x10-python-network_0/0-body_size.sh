@@ -1,5 +1,7 @@
 #!/bin/bash
 # This script resent the  request to the same URlthat it come from
 # While displaying the size of the response's body
+ 
+url1= $1
 
-curl -s "$1" -w '%{size_download}\n' -o /dev/null
+curl -sI url1 | grep "Content-Length" | cut -d " " -f2
