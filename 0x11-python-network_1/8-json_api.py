@@ -33,6 +33,6 @@ if __name__ == "__main__":
         word = ""
     else:
         word = argv[1]
-    char = {"q": letter}
+    char = {"q": word}
     respo = send_post_request(Lin, char)
     process_response(respo)
