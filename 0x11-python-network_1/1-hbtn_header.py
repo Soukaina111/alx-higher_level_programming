@@ -6,8 +6,8 @@ from urllib.request import Request, urlopen
 from sys import argv
 
 if __name__ == "__main__":
-	Link = argv[1]
-	req = Request(Link)
-	with urlopen(req) as response:
-		 html_head = response.headers
-		 print(dict(html_head).get("X-Request-Id"))
+    Link = argv[1]
+    req = Request(Link)
+    with urlopen(req) as response:
+        html_head = response.headers
+        print(dict(html_head).get("X-Request-Id"))
