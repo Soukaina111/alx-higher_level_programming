@@ -1,17 +1,10 @@
 #!/usr/bin/node
 
 const request = require('request');
+const url = 'https://swapi-api.hbtn.io/api/films/';
+const url2 = url.concat(process.argv[2]);
 
-const starWarsUri = `https://swapi-api.hbtn.io/api/films/${process.argv[2]}`;
-
-request(starWarsUri, (error, response, body) => {
-    if (error) {
-        console.error('An error occurred:', error);
-        process.exit(1);
-    }
-
-    const film = JSON.parse(body);
-
-    console.log(`Title: ${film.title}`);
+request(url2, function (_err, _res, body) {
+  mov = JSON.parse(body);
+  console.log(mov.title);
 });
-
