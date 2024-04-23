@@ -5,10 +5,10 @@ const starWarsUri = process.argv[2];
 let fois = 0;
 
 request(starWarsUri, function (_err, _res, body) {
- body = JSON.parse(body).results;
- let i = 0;
+  body = JSON.parse(body).results;
+  let i = 0;
 
- while (i < body.length) {
+  while (i < body.length) {
     const characters = body[i].characters;
     let j = 0;
 
@@ -24,8 +24,7 @@ request(starWarsUri, function (_err, _res, body) {
     }
 
     i++;
- }
+  }
 
- console.log(fois);
+  console.log(fois);
 });
-
